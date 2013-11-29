@@ -336,6 +336,12 @@ img {
   vertical-align: middle;
 }
 
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .img-responsive {
   display: block;
   height: auto;
@@ -343,7 +349,7 @@ img {
 }
 
 .img-rounded {
-  border-radius: 0;
+  border-radius: 5%;
 }
 
 .img-thumbnail {
@@ -1528,7 +1534,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 900px;
   }
   .col-lg-1,
   .col-lg-2,
@@ -7061,7 +7067,7 @@ td.visible-xs {
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 199px) {
   .visible-xs.visible-md {
     display: block !important;
   }
