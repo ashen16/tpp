@@ -1,2 +1,14 @@
-<%= @post.title %>
-<%= @post.body %>
+<div class="row">
+	<div class="col-lg-12 col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1><%= @post.title %></h1>
+			</div>
+			<div class="panel-body">
+				<p><%= image_tag @post.image_url.to_s, :class => 'img-responsive img-center' %></p>
+				<p><b>Date:</b> <%= l @post.created_at, format: :short %></p>
+				<p><%= @post.body %></p>
+			</div>
+		</div>
+	</div>
+</div>
