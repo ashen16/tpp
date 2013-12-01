@@ -5,11 +5,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2><%= link_to post.title, post_path(post) %></h2>
+					<p><b>Date:</b> <%= l post.created_at, format: :short %></p>
 				</div>
 				<div class="panel-body">
-					<p><b>Date:</b> <%= l post.created_at, format: :short %></p>
-					<p><%= image_tag post.image_url.to_s, :class => 'img-responsive img-polaroid img-center' %></p>
-					<p><%= post.body %></p>
+					<% if post.image? %>
+						<p><%= image_tag post.image_url.to_s, :class => 'img-responsive img-polaroid img-center' %></p>
+					<% end %>
+					<p><%= post.body.html_safe %></p>
 				</div>
 				<%= link_to 'Edit Post', edit_post_path(post), :class => 'btn btn-warning' %>
 				<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
@@ -19,7 +21,7 @@
 
 	<div class="col-lg-4 col-md-4 text-center">
 		<div class="panel panel-default">
-			<h2>Popular Posts</h2>
+			<h3>Popular Posts</h3>
 		</div>
 	</div>
 </div>
