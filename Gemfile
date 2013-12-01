@@ -32,6 +32,8 @@ gem "rmagick"
 
 gem "figaro"
 
+gem 'bootstrap-wysihtml5-rails'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'
