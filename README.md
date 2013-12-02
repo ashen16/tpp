@@ -10,6 +10,10 @@ Blog site dedicated to the latest and greatest gadgets currently out on the mark
 
 Feel free to use this code to create your own blog/technology review site. It would be much appreciated if you could add a link to credit this particular repo on your site.
 
+## Future Features
+* twitter sign in integration
+*
+
 ## Known Issues
 
 There are currently no known issues.
