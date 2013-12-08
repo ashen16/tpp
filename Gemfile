@@ -44,6 +44,7 @@ end
 group :development, :test do
 	gem 'launchy'
 	gem 'sqlite3'
+	gem 'brakeman'
 end
 
 group :doc do
