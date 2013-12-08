@@ -1,5 +1,5 @@
 # Technology, Psychology, Philosophy
-Work in Progress
+Work in Progress 
 by James Chuang
 
 ## Description
@@ -29,14 +29,14 @@ Checks run: BasicAuth, ContentTag, CrossSiteScripting, DefaultRoutes, Deserializ
 
 +SUMMARY+
 
-+-------------------+-------+
-| Scanned/Reported  | Total |
-+-------------------+-------+
-| Controllers       | 2     |
-| Models            | 2     |
-| Templates         | 17    |
-| Errors            | 0     |
-| Security Warnings | 0 (0) |
++-------------------+-------+ 
+| Scanned/Reported  | Total | 
++-------------------+-------+ 
+| Controllers       | 2     | 
+| Models            | 2     | 
+| Templates         | 17    | 
+| Errors            | 0     | 
+| Security Warnings | 0 (0) | 
 +-------------------+-------+
 
 
