@@ -32,25 +32,17 @@ Duration: 0.232494375 seconds
 Checks run: BasicAuth, ContentTag, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, EscapeFunction, Evaluation, Execute, FileAccess, FilterSkipping, ForgerySetting, JRubyXML, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, QuoteTableName, Redirect, Render, ResponseSplitting, SQL, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionSettings, SingleQuotes, SkipBeforeFilter, StripTags, SymbolDoS, TranslateBug, UnsafeReflection, ValidationRegex, WithoutProtection, YAMLParsing
 
 
-+SUMMARY+
+|+SUMMARY+
 
-+-------------------+-------+
-
-| Scanned/Reported  | Total |
-
-+-------------------+-------+
-
-| Controllers       | 2     |
-
-| Models            | 2     |
-
-| Templates         | 17    |
-
-| Errors            | 0     |
-
-| Security Warnings | 0 (0) |
-
-+-------------------+-------+
+    +-------------------+-------+
+    | Scanned/Reported  | Total |
+    +-------------------+-------+
+    | Controllers       | 2     |
+    | Models            | 2     |
+    | Templates         | 17    |
+    | Errors            | 0     |
+    | Security Warnings | 0 (0) |
+    +-------------------+-------+
 
 
 ## Authors
