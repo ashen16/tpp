@@ -36,6 +36,8 @@ gem 'bootstrap-wysihtml5-rails'
 
 gem 'devise'
 
+gem 'will_paginate-bootstrap'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'

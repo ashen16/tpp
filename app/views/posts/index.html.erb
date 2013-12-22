@@ -17,6 +17,9 @@
 				<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
 			</div>
 		<% end %>
+		<div class="text-center">
+			<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+		</div>
 	</div>
 
 	<div class="col-lg-4 col-md-4 text-center">
