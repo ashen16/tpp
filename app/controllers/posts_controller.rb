@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_filter :authenticate_user!, except: [:index, :show]
+
 	def index
 		@posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
 	end
