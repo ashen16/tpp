@@ -1,7 +1,36 @@
 <h1>Technology, Psychology, Philosophy</h1>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+    	<% @posts.each do |post| %>
+      	<%= image_tag post.image_url.to_s, :class => 'img-responsive' %>
+      	<div class="carousel-caption">
+        	<h3><%= link_to post.title, post_path(post) %></h3>
+      	</div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+<br />
 <div class="row">
 	<div class="col-lg-8 col-md-8">
-		<% @posts.reverse_each do |post| %>
+		<% @posts.each do |post| %>
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2><%= link_to post.title, post_path(post) %></h2>
