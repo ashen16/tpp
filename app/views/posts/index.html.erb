@@ -9,14 +9,22 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
-    	<% @posts.each do |post| %>
+  	<% first = true %>
+  	<% @posts.each do |post| %>
+		<% if first %>
+    	<div class="item active">
+    	<% first = false %>
+    <% else %>
+    	<div class="item">
+    <% end %>
+
       	<%= image_tag post.image_url.to_s, :class => 'img-responsive' %>
       	<div class="carousel-caption">
         	<h3><%= link_to post.title, post_path(post) %></h3>
       	</div>
-      <% end %>
+
     </div>
+    <% end %>
   </div>
 
   <!-- Controls -->
