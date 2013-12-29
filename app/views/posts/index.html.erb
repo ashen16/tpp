@@ -10,7 +10,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
   	<% first = true %>
-  	<% @posts.each do |post| %>
+  	<% @posts.limit(5).each do |post| %>
 		<% if first %>
     	<div class="item active">
     	<% first = false %>
@@ -59,10 +59,18 @@
 		</div>
 	</div>
 
-	<div class="col-lg-4 col-md-4 text-center">
-		<div class="panel panel-default">
-			<h3>Popular Posts</h3>
+	<div class="col-lg-4 col-md-4">
+		<div class="row panel panel-default panel-body">
+      <div class="text-center">
+        <h3>Recent Posts</h3>
+      </div>
+      <% @posts.take(5).reverse_each do |post| %>
+        <li><%= link_to post.title, post_path(post) %></li>
+      <% end %>
 		</div>
+    <div class="row panel panel-default panel-body">
+      <%= render 'archive' %>
+    </div>
 	</div>
 </div>
 
