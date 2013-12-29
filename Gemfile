@@ -40,6 +40,8 @@ gem 'will_paginate-bootstrap'
 
 gem 'acts-as-taggable-on'
 
+gem 'pundit'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'

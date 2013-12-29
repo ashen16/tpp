@@ -2,7 +2,11 @@ class PostsController < ApplicationController
 	before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
-		@posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
+		if params[:tag]
+    	@posts = policy_scope(Post).order('created_at DESC').tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 3)
+  	else
+    	@posts = policy_scope(Post).order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
+  	end
 	end
 
 	def show
@@ -42,6 +46,6 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:title, :body, :image, :remote_image_url)
+		params.require(:post).permit(:title, :body, :image, :remote_image_url, :published, :tag_list)
 	end
 end
