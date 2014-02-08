@@ -1,96 +1,20 @@
-<h1>Technology, Psychology, Philosophy</h1>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-  	<% first = true %>
-  	<% @posts.limit(5).each do |post| %>
-		<% if first %>
-    	<div class="item active">
-    	<% first = false %>
-    <% else %>
-    	<div class="item">
-    <% end %>
-
-      	<%= image_tag post.image_url.to_s, :class => 'img-responsive' %>
-      	<div class="carousel-caption">
-        	<h3><%= link_to post.title, post_path(post) %></h3>
-      	</div>
-
+<ul class="example-orbit" data-orbit>
+  <li>
+    <img src="../assets/img/examples/satelite-orbit.jpg" alt="slide 1" />
+    <div class="orbit-caption">
+      Caption One.
     </div>
-    <% end %>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-<br />
-<div class="row">
-	<div class="col-lg-8 col-md-8">
-		<% @posts.each do |post| %>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h2><%= link_to post.title, post_path(post) %></h2>
-					<p><b>Date:</b> <%= l post.created_at, format: :short %></p>
-				</div>
-				<div class="panel-body">
-					<% if post.image? %>
-						<p><%= image_tag post.image_url.to_s, :class => 'img-responsive img-polaroid img-center' %></p>
-					<% end %>
-					<p><%= post.body.html_safe %></p>
-				</div>
-        <% if current_user.present? && user.admin? %>
-          <% if post.published? == false && policy(post).publish?%>
-            <%= link_to 'Publish', post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}, :class => 'btn btn-warning'%>
-          <% end %>
-          <% if post.published? && policy(post).publish?%>
-            <%= link_to 'Unpublish', post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'}, :class => 'btn btn-warning' %>
-          <% end %>
-          <%= link_to 'Edit Post', edit_post_path(post), :class => 'btn btn-primary'%>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
-        <% end %>
-			</div>
-		<% end %>
-		<div class="text-center">
-			<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-		</div>
-    <% if current_user.present? && user.admin? %>
-      <%= link_to 'New Post', new_post_path, :class => 'btn btn-primary'%>
-    <% end %>
-	</div>
-
-	<div class="col-lg-4 col-md-4">
-		<div class="row panel panel-default panel-body">
-      <div class="text-center">
-        <h3>Recent Posts</h3>
-      </div>
-      <% @posts.take(5).reverse_each do |post| %>
-        <li><%= link_to post.title, post_path(post) %></li>
-      <% end %>
-		</div>
-    <div class="row panel panel-default panel-body">
-      <div class="text-center">
-        <h3>Tags</h3>
-      </div>
-      <div id="tag_cloud">
-        <% tag_cloud policy_scope(Post).tag_counts, %w{s m l} do |tag, css_class| %>
-          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-        <% end %>
-      </div>
+  </li>
+  <li>
+    <img src="../assets/img/examples/andromeda-orbit.jpg" alt="slide 2" />
+    <div class="orbit-caption">
+      Caption Two.
     </div>
-    <div class="row panel panel-default panel-body">
-      <%= render 'archive' %>
+  </li>
+  <li>
+    <img src="../assets/img/examples/launch-orbit.jpg" alt="slide 3" />
+    <div class="orbit-caption">
+      Caption Three.
     </div>
-	</div>
-</div>
+  </li>
+</ul>

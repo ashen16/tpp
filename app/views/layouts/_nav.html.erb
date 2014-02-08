@@ -1,31 +1,14 @@
-<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/#top">TPP</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href= <%=posts_path %> >Blog</a></li>
-        <li><a href="/#about">Gadgets</a></li>
-        <li><a href="/#about">Review</a></li>
-
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user.present? %>
-          <!-- <li>Logged in as <%= current_user.email %></li> -->
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
-</nav>
+<div class="row nav-padding">
+  <div class="text-center">
+    <h1>Technology, Psychology, Philosophy</h1>
+    <h5>Technology with a slice of Psychology and Philosophy</h5>
+  </div>
+  <div class="medium-12 large-12 column">
+    <dl class="sub-nav left">
+      <dd><h5><a href="/">Home</a></h5></dd>
+      <% if current_user.present? %>
+        <dd><h5><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a></h5></dd>
+      <% end %>
+    </dl>
+  </div>
+</div>
