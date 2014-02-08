@@ -29,10 +29,11 @@ gem "rmagick"
 gem "figaro"
 gem 'bootstrap-wysihtml5-rails'
 gem 'devise'
-gem 'will_paginate-bootstrap'
 gem 'acts-as-taggable-on'
 gem 'pundit'
 gem 'foundation-rails'
+gem 'will_paginate'
+gem 'foundation-will_paginate'
 
 group :production do
   gem 'rails_12factor'
