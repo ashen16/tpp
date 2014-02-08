@@ -23,24 +23,16 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
 gem 'ember-rails'
-
 gem 'carrierwave'
-
 gem "rmagick"
-
 gem "figaro"
-
 gem 'bootstrap-wysihtml5-rails'
-
 gem 'devise'
-
 gem 'will_paginate-bootstrap'
-
 gem 'acts-as-taggable-on'
-
 gem 'pundit'
+gem 'foundation-rails'
 
 group :production do
   gem 'rails_12factor'
