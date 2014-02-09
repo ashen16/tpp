@@ -1,14 +1,3 @@
-<ul class="example-orbit" data-orbit>
-  <% @posts.each do |post| %>
-  <li>
-    <%= image_tag post.image_url.to_s %>
-    <div class="orbit-caption">
-      <%= post.title %>
-    </div>
-  </li>
-  <% end %>
-</ul>
-
 <div class="row">
   <div class="text-right">
     <% if current_user.present? %>
