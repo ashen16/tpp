@@ -13,6 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require tpp
+
+// for more details see: http://emberjs.com/guides/application/
+Tpp = Ember.Application.create();
+
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

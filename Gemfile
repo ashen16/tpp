@@ -9,8 +9,6 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -28,6 +26,8 @@ gem 'pundit'
 gem 'foundation-rails'
 gem 'will_paginate'
 gem 'foundation-will_paginate'
+gem 'ember-rails'
+gem 'ember-source', '1.3.0'
 
 group :production do
   gem 'rails_12factor'
