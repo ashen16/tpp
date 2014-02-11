@@ -1,10 +1,8 @@
 Tpp::Application.routes.draw do
-  resources :welcomes
-
   devise_for :users
   resources :posts
 
-  root to: 'welcomes#index'
+  root to: 'posts#index'
 
   get 'tags/:tag', to: 'posts#index', as: :tag
 

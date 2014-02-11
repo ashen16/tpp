@@ -12,7 +12,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="row container">
+      <%= render 'layouts/nav' %>
+      <%= yield %>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
