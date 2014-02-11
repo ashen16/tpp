@@ -196,7 +196,6 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   brakeman
   carrierwave
-  coffee-rails (~> 4.0.0)
   devise
   ember-rails
   figaro
