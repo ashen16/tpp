@@ -1,6 +1,8 @@
 Tpp::Application.routes.draw do
   devise_for :users
   resources :posts
+  get '/news/:id(.:format)' => "posts#show", :as => 'new'
+  get '/news' => "posts#index", :as => 'news'
 
   root to: 'posts#index'
 
