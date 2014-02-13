@@ -24,7 +24,6 @@ gem 'ember-rails'
 gem 'carrierwave'
 gem "rmagick"
 gem "figaro"
-gem 'bootstrap-wysihtml5-rails'
 gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'pundit'

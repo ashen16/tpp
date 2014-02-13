@@ -37,8 +37,6 @@ GEM
       execjs
       handlebars-source
     bcrypt-ruby (3.1.2)
-    bootstrap-wysihtml5-rails (0.3.1.23)
-      railties (>= 3.0)
     brakeman (2.2.0)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -193,7 +191,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  bootstrap-wysihtml5-rails
   brakeman
   carrierwave
   devise
