@@ -31,6 +31,7 @@ gem 'foundation-rails'
 gem 'will_paginate'
 gem 'foundation-will_paginate'
 gem 'redcarpet'
+gem 'truncate_html'
 
 group :production do
   gem 'rails_12factor'

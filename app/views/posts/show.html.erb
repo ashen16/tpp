@@ -1,10 +1,19 @@
 <div class="row">
-	<div class="medium-3 large-3 column text-right">
+  <div class="text-right">
+    <% if current_user.present? %>
+      <h6><%= link_to image_tag("new.png") + "New Post", new_post_path %></h6>
+    <% end %>
+    <h4><small>Popular Tags: <%= raw policy_scope(Post).tag_counts_on(:tags).order('count desc').limit(10).map { |t| link_to t, tag_path(t.to_s) }.join(', ') %></small></h4>
+  </div>
+</div>
+<div class="row">
+	<div class="large-5 column text-right">
+		<%= image_tag @post.image_url().to_s %>
 		<h3><%= @post.title %></h3>
 		<h3><small><%= l @post.created_at, format: :long %></small></h3>
 		<h4><small>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small></h4>
 	</div>
-	<div class="medium-3 large-9 column">
+	<div class="large-7 column">
 		<p><%= markdown @post.body %></p>
 		<%= link_to 'Back', posts_path, :class => 'button'%>
 	</div>
