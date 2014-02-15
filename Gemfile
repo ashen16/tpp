@@ -30,6 +30,7 @@ gem 'pundit'
 gem 'foundation-rails'
 gem 'will_paginate'
 gem 'foundation-will_paginate'
+gem 'redcarpet'
 
 group :production do
   gem 'rails_12factor'

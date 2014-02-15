@@ -1,14 +1,11 @@
 <div class="row">
-	<div class="col-lg-12 col-md-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h1><%= @post.title %></h1>
-			</div>
-			<div class="panel-body">
-				<p><%= image_tag @post.image_url.to_s, :class => 'img-responsive img-center' %></p>
-				<p><b>Date:</b> <%= l @post.created_at, format: :short %></p>
-				<p><%= @post.body %></p>
-			</div>
-		</div>
+	<div class="medium-3 large-3 column text-right">
+		<h3><%= @post.title %></h3>
+		<h3><small><%= l @post.created_at, format: :long %></small></h3>
+		<h4><small>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small></h4>
+	</div>
+	<div class="medium-3 large-9 column">
+		<p><%= markdown @post.body %></p>
+		<%= link_to 'Back', posts_path, :class => 'button'%>
 	</div>
 </div>

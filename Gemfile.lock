@@ -139,6 +139,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     rmagick (2.13.2)
     ruby2ruby (2.0.6)
       ruby_parser (~> 3.1)
@@ -205,6 +206,7 @@ DEPENDENCIES
   pundit
   rails (= 4.0.1)
   rails_12factor
+  redcarpet
   rmagick
   sass-rails (~> 4.0.0)
   sdoc

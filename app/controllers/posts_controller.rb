@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
 	def index
 		if params[:tag]
-    	@posts = policy_scope(Post).order('created_at DESC').tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 3)
+    	@posts = policy_scope(Post).order('created_at DESC').tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 7)
   	else
-    	@posts = policy_scope(Post).order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
+    	@posts = policy_scope(Post).order('created_at DESC').paginate(:page => params[:page], :per_page => 7)
   	end
 	end
 
