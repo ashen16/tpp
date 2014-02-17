@@ -1,20 +1,12 @@
 <div class="row">
-  <div class="text-right">
-    <% if current_user.present? %>
-      <h6><%= link_to image_tag("new.png") + "New Post", new_post_path %></h6>
-    <% end %>
-    <h4><small>Popular Tags: <%= raw policy_scope(Post).tag_counts_on(:tags).order('count desc').limit(10).map { |t| link_to t, tag_path(t.to_s) }.join(', ') %></small></h4>
-  </div>
-</div>
-<div class="row">
   <div class="large-5 column">
-    <div class="th">
-      <% if @posts[0] %>
+    <% if @posts[0] %>
+      <div class="th">
         <%= image_tag @posts[0].image_url().to_s %>
         <h4 class="text-center"><%= link_to @posts[0].title, post_path(@posts[0]) %></h4>
         <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
   <div class="large-7 column">
     <ul class="small-block-grid-2 text-center">
@@ -39,5 +31,13 @@
         <% end %>
       <% end %>
     </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="text-right">
+    <% if current_user.present? %>
+      <h6><%= link_to image_tag("new.png") + "New Post", new_post_path %></h6>
+    <% end %>
+    <h4><small>Popular Tags: <%= raw policy_scope(Post).tag_counts_on(:tags).order('count desc').limit(10).map { |t| link_to t, tag_path(t.to_s) }.join(', ') %></small></h4>
   </div>
 </div>
