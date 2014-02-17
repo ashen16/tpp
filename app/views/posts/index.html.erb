@@ -1,13 +1,17 @@
 <div class="row">
-  <div class="large-5 column">
-    <% if @posts[0] %>
+  <% if @posts[0] %>
+    <div class="large-12 column">
+      <h3><%= l @posts[0].created_at, format: :long %></h3>
+    </div>
+    <div class="large-5 column">
       <div class="th">
         <%= image_tag @posts[0].image_url().to_s %>
         <h4 class="text-center"><%= link_to @posts[0].title, post_path(@posts[0]) %></h4>
+        <h4><small><%= l @posts[0].created_at, format: :admin %></small></h4>
         <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <div class="large-7 column">
     <ul class="small-block-grid-2">
       <% if @posts[1..-1] %>
@@ -16,6 +20,7 @@
             <a href=<%= post_path(post) %> class="th">
               <%= image_tag post.image_url.to_s %>
               <h6 class="text-center"><%= post.title %></h6>
+              <h4><small><%= l post.created_at, format: :admin %></small></h4>
               <h6><%= truncate_html(markdown(post.body),  length: 150) %></h6>
               <% if current_user.present? %>
                 <% if post.published? == false && policy(post).publish?%>
@@ -32,6 +37,11 @@
         <% end %>
       <% end %>
     </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="right">
+    <%= foundation_paginate @posts %>
   </div>
 </div>
 <div class="row">
