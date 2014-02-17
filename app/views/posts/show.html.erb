@@ -11,7 +11,7 @@
 		<%= image_tag @post.image_url().to_s %>
 		<h3><%= @post.title %></h3>
 		<h3><small><%= l @post.created_at, format: :long %></small></h3>
-		<h4><small>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small></h4>
+		<h4><small>Tags: <%= @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ').html_safe %></small></h4>
 	</div>
 	<div class="large-7 column">
 		<p><%= markdown @post.body %></p>
