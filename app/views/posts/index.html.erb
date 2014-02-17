@@ -9,30 +9,34 @@
 <div class="row">
   <div class="large-5 column">
     <div class="th">
-      <%= image_tag @posts[0].image_url().to_s %>
-      <h4 class="text-center"><%= link_to @posts[0].title, post_path(@posts[0]) %></h4>
-      <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
+      <% if @posts[0] %>
+        <%= image_tag @posts[0].image_url().to_s %>
+        <h4 class="text-center"><%= link_to @posts[0].title, post_path(@posts[0]) %></h4>
+        <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
+      <% end %>
     </div>
   </div>
   <div class="large-7 column">
     <ul class="small-block-grid-2 text-center">
-      <% @posts[1..-1].each do |post| %>
-        <li>
-          <a href=<%= post_path(post) %> class="th">
-            <%= image_tag post.image_url.to_s %>
-            <h6><%= post.title %></h6>
-            <% if current_user.present? %>
-              <% if post.published? == false && policy(post).publish?%>
-                <%= link_to image_tag("publish.png"), post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
+      <% if @posts[1..-1] %>
+        <% @posts[1..-1].each do |post| %>
+          <li>
+            <a href=<%= post_path(post) %> class="th">
+              <%= image_tag post.image_url.to_s %>
+              <h6><%= post.title %></h6>
+              <% if current_user.present? %>
+                <% if post.published? == false && policy(post).publish?%>
+                  <%= link_to image_tag("publish.png"), post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
+                <% end %>
+                <% if post.published? && policy(post).publish?%>
+                  <%= link_to image_tag("unpublish.png"), post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
+                <% end %>
+                <%= link_to image_tag("edit.png"), edit_post_path(post) %>
+                <%= link_to image_tag("delete.png"), post, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
-              <% if post.published? && policy(post).publish?%>
-                <%= link_to image_tag("unpublish.png"), post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
-              <% end %>
-              <%= link_to image_tag("edit.png"), edit_post_path(post) %>
-              <%= link_to image_tag("delete.png"), post, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          </a>
-        </li>
+            </a>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
