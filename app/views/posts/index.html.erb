@@ -10,14 +10,14 @@
         <h4><small><%= l @posts[0].created_at, format: :admin %></small></h4>
         <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
         <% if current_user.present? %>
-          <% if post.published? == false && policy(post).publish?%>
-            <%= link_to image_tag("publish.png"), post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
+          <% if @posts[0].published? == false && policy(@posts[0]).publish?%>
+            <%= link_to image_tag("publish.png"), post_path(@posts[0], post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
           <% end %>
-          <% if post.published? && policy(post).publish?%>
-            <%= link_to image_tag("unpublish.png"), post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
+          <% if @posts[0].published? && policy(@posts[0]).publish?%>
+            <%= link_to image_tag("unpublish.png"), post_path(@posts[0], post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
           <% end %>
-          <%= link_to image_tag("edit.png"), edit_post_path(post) %>
-          <%= link_to image_tag("delete.png"), post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to image_tag("edit.png"), edit_post_path(@posts[0]) %>
+          <%= link_to image_tag("delete.png"), @posts[0], method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
     </div>
