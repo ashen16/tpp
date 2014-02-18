@@ -21,7 +21,7 @@
               <%= image_tag post.image_url.to_s %>
               <h6 class="text-center"><%= post.title %></h6>
               <h4><small><%= l post.created_at, format: :admin %></small></h4>
-              <h6><%= truncate_html(markdown(post.body),  length: 150) %></h6>
+              <h6><%= truncate_html(markdown(post.body),  length: 120) %></h6>
               <% if current_user.present? %>
                 <% if post.published? == false && policy(post).publish?%>
                   <%= link_to image_tag("publish.png"), post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
