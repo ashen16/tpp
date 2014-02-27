@@ -39,4 +39,24 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  def sign_in(u)
+    visit new_user_session_path
+    fill_in "Email", with: u.email
+    fill_in "Password", with: u.password
+    click_on "Sign in"
+  end
 end

@@ -48,6 +48,7 @@ group :development, :test do
   gem 'pry'
   gem 'simplecov', '~> 0.7.1'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :doc do
