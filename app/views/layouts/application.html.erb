@@ -13,6 +13,12 @@
 
   <body>
     <div class="row container padding">
+      <% flash.each do |key, value| %>
+        <div data-alert class="<%= flash_class(key) %>">
+          <%= value %>
+          <a href="" class="close">×</a>
+        </div>
+      <% end %>
       <%= render 'layouts/nav' %>
       <%= yield %>
     </div>

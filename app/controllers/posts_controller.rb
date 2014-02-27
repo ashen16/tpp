@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 
 		if @post.save
-			redirect_to posts_path
+			redirect_to posts_path, notice: 'Post was successfully added.'
 		end
 	end
 
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 
 		if @post.update_attributes(post_params)
-			redirect_to posts_path
+			redirect_to posts_path, notice: 'Post was successfully updated.'
 		end
 	end
 
