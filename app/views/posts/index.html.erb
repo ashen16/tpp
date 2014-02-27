@@ -9,15 +9,18 @@
         <h4 class="text-center"><%= link_to @posts[0].title, post_path(@posts[0]) %></h4>
         <h4><small><%= l @posts[0].created_at, format: :admin %></small></h4>
         <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
-        <% if current_user.present? %>
-          <% if @posts[0].published? == false && policy(@posts[0]).publish?%>
+        <% if policy(@posts).publish? %>
+          <% if @posts[0].published? == false %>
             <%= link_to image_tag("publish.png"), post_path(@posts[0], post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
-          <% end %>
-          <% if @posts[0].published? && policy(@posts[0]).publish?%>
+          <% else %>
             <%= link_to image_tag("unpublish.png"), post_path(@posts[0], post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
           <% end %>
-          <%= link_to image_tag("edit.png"), edit_post_path(@posts[0]) %>
-          <%= link_to image_tag("delete.png"), @posts[0], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if policy(@posts).update? %>
+            <%= link_to image_tag("edit.png"), edit_post_path(@posts[0]) %>
+          <% end %>
+          <% if policy(@posts).destroy? %>
+            <%= link_to image_tag("delete.png"), @posts[0], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -32,14 +35,16 @@
               <h6 class="text-center"><%= post.title %></h6>
               <h4><small><%= l post.created_at, format: :admin %></small></h4>
               <h6><%= truncate_html(markdown(post.body),  length: 120) %></h6>
-              <% if current_user.present? %>
-                <% if post.published? == false && policy(post).publish?%>
-                  <%= link_to image_tag("publish.png"), post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
-                <% end %>
-                <% if post.published? && policy(post).publish?%>
-                  <%= link_to image_tag("unpublish.png"), post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
-                <% end %>
+              <% if post.published? == false && policy(post).publish?%>
+                <%= link_to image_tag("publish.png"), post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
+              <% end %>
+              <% if post.published? && policy(post).publish?%>
+                <%= link_to image_tag("unpublish.png"), post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
+              <% end %>
+              <% if policy(post).update? %>
                 <%= link_to image_tag("edit.png"), edit_post_path(post) %>
+              <% end %>
+              <% if policy(post).destroy? %>
                 <%= link_to image_tag("delete.png"), post, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
             </a>
@@ -56,7 +61,7 @@
 </div>
 <div class="row">
   <div class="text-right">
-    <% if current_user.present? %>
+    <% if policy(@posts).create? %>
       <h6><%= link_to image_tag("new.png") + "New Post", new_post_path %></h6>
     <% end %>
     <h4><small>Popular Tags: <%= raw policy_scope(Post).tag_counts_on(:tags).order('count desc').limit(10).map { |t| link_to t, tag_path(t.to_s) }.join(', ') %></small></h4>
