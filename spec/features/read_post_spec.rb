@@ -18,6 +18,7 @@ feature "Viewing posts" do
 
       page.should have_content('Technology, Psychology, Philosophy')
       page.should have_content('Testing a Post')
+      page.should have_content('test')
       page.should have_content('This is a test post with a bunch of words')
       page.should have_content('Another One')
       page.should have_content('This test post is another one')
@@ -29,6 +30,7 @@ feature "Viewing posts" do
       visit post_path(post3)
 
       page.should have_content('Technology, Psychology, Philosophy')
+      page.should have_no_content('New Post')
       page.should have_content('Another One')
       page.should have_content('This test post is another one')
     end
@@ -44,6 +46,15 @@ feature "Viewing posts" do
       page.should have_content('This is a test post with a bunch of words')
       page.should have_content('Not Published')
       page.should have_content('This test post is not published')
+    end
+    scenario "shows individual published post" do
+      sign_in(user)
+      visit post_path(post3)
+
+      page.should have_content('Technology, Psychology, Philosophy')
+      page.should have_content('New Post')
+      page.should have_content('Another One')
+      page.should have_content('This test post is another one')
     end
   end
 end
