@@ -21,13 +21,13 @@ There are currently no known issues.
 ## Security Test
 +BRAKEMAN REPORT+
 
-Rails version: 4.0.1
+Rails version: 4.0.2
 
 Brakeman version: 2.2.0
 
+Started at 2014-02-27 14:54:02 -0800
 
-Started at 2013-12-07 20:07:28 -0800
-Duration: 0.232494375 seconds
+Duration: 0.799070054 seconds
 
 Checks run: BasicAuth, ContentTag, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, EscapeFunction, Evaluation, Execute, FileAccess, FilterSkipping, ForgerySetting, JRubyXML, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, QuoteTableName, Redirect, Render, ResponseSplitting, SQL, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionSettings, SingleQuotes, SkipBeforeFilter, StripTags, SymbolDoS, TranslateBug, UnsafeReflection, ValidationRegex, WithoutProtection, YAMLParsing
 
@@ -43,6 +43,7 @@ Checks run: BasicAuth, ContentTag, CrossSiteScripting, DefaultRoutes, Deserializ
     | Errors            | 0     |
     | Security Warnings | 0 (0) |
     +-------------------+-------+
+
 
 
 ## Authors
