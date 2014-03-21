@@ -1,4 +1,36 @@
+html {
+}
+body {
+  height: 100%;
+}
+.inner-wrap {
+  height: 100%;
+}
+.off-canvas-wrap {
+  height: 100%;
+}
+header {
+  width: 100%;
+  height: 345px;
+  background-image: url("cover.png");
+}
+.title-header {
+  padding-top: 100px;
+}
+.left-off-canvas-menu {
+  /*position: fixed;*/
+}
+.left-off-canvas-toggle.menu-icon{
+  position: absolute;
+  top: 10px;
+  background-color: #000;
+}
 .padding {
   padding-right: 20px;
   padding-left: 20px;
+}
+.main-section {
+  padding-top: 0;
+  margin-top: 0;
+  top: 0;
 }

@@ -1,4 +1,4 @@
-<div class="off-canvas-wrap">
+<div class="off-canvas-wrap sticky" data-options="sticky_on: large">
   <div class="inner-wrap">
     <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
     <aside class="left-off-canvas-menu">
@@ -13,13 +13,24 @@
     </aside>
 
     <section class="main-section">
-      <div class="row padding">
-        <div class="text-center">
+      <header>
+        <div class="title-header text-center">
           <h1>Technology, Psychology, Philosophy</h1>
           <h5>Technology with a slice of Psychology and Philosophy</h5>
         </div>
+      </header>
+      <div class="row padding">
+        <% flash.each do |key, value| %>
+          <div data-alert class="<%= flash_class(key) %>">
+            <%= value %>
+            <a href="" class="close">×</a>
+          </div>
+        <% end %>
+
+
+
+        <%= yield %>
       </div>
-      <%= yield %>
     </section>
 
   <a class="exit-off-canvas"></a>

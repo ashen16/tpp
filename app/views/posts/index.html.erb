@@ -1,22 +1,25 @@
 <div class="row">
-  <% if @posts[0] %>
+  <% if @post %>
     <div class="large-12 column">
-      <h3><%= l @posts[0].created_at, format: :long %></h3>
+      <h3><%= l @post.created_at, format: :long %></h3>
     </div>
     <div class="large-5 column">
       <div class="th">
-        <%= image_tag @posts[0].image_url().to_s %>
-        <h4 class="text-center"><%= link_to @posts[0].title, post_path(@posts[0]) %></h4>
-        <h4><small><%= l @posts[0].created_at, format: :admin %></small></h4>
-        <h6><%= truncate_html(markdown(@posts[0].body),  length: 700) %></h6>
+        <%= image_tag @post.image_url().to_s %>
+        <h4 class="text-center"><%= link_to @post.title, post_path(@posts[0]) %></h4>
+        <h4><small><%= l @post.created_at, format: :admin %></small></h4>
+        <h6><%= truncate_html(markdown(@post.body),  length: 700) %></h6>
         <% if policy(@posts).publish? %>
-          <% if @posts[0].published? == false %>
-            <%= link_to image_tag("publish.png"), post_path(@posts[0], post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
+          <% if @post.published? == false %>
+            <%= link_to image_tag("publish.png"), post_path(@post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}%>
           <% else %>
-            <%= link_to image_tag("unpublish.png"), post_path(@posts[0], post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
+            <%= link_to image_tag("unpublish.png"), post_path(@post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'} %>
           <% end %>
-          <% if policy(@posts).update? %>
-            <%= link_to image_tag("edit.png"), edit_post_path(@posts[0]) %>
+          <% if policy(@post).update? %>
+            <%= link_to image_tag("edit.png"), edit_post_path(@post) %>
+          <% end %>
+          <% if policy(@post).destroy? %>
+            <%= link_to image_tag("delete.png"), @post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         <% end %>
       </div>
