@@ -13,6 +13,7 @@ Feel free to use this code to create your own blog/technology review site. It wo
 
 ## Future Features
 * twitter sign in integration
+* image cropping
 
 ## Known Issues
 
