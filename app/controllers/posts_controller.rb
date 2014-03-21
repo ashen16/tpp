@@ -3,10 +3,10 @@ class PostsController < ApplicationController
 
 	def index
 		if params[:tag]
-    	@posts = policy_scope(Post).order('created_at DESC').tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 5)
+    	@posts = policy_scope(Post).order('created_at DESC').tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 6)
     	@post = @posts.first
   	else
-    	@posts = policy_scope(Post).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
+    	@posts = policy_scope(Post).order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
     	@post = @posts.first
   	end
 	end
