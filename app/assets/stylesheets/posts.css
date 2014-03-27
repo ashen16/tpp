@@ -20,9 +20,6 @@ header {
 .title-header {
   padding-top: 100px;
 }
-.left-off-canvas-menu {
-  /*position: fixed;*/
-}
 .left-off-canvas-toggle.menu-icon{
   position: absolute;
   top: 10px;
