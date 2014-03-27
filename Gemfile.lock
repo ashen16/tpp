@@ -89,6 +89,7 @@ GEM
     ember-source (1.2.0.1)
       handlebars-source (~> 1.1.2)
     erubis (2.7.0)
+    excon (0.31.0)
     execjs (2.0.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -99,6 +100,16 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    fog (1.20.0)
+      builder
+      excon (~> 0.31.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+      nokogiri (>= 1.5.11)
+    formatador (0.2.4)
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -125,9 +136,14 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_magick (3.7.0)
+      subexec (~> 0.2.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.8.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
@@ -164,7 +180,6 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (3.0.0)
-    rmagick (2.13.2)
     rspec-core (2.14.7)
     rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -209,6 +224,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
+    subexec (0.2.3)
     temple (0.6.7)
     terminal-table (1.4.5)
     thor (0.18.1)
@@ -225,6 +241,9 @@ GEM
     uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.3)
+      unf_ext
+    unf_ext (0.0.6)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
@@ -244,19 +263,20 @@ DEPENDENCIES
   ember-rails
   factory_girl_rails
   figaro
+  fog
   foundation-rails
   foundation-will_paginate
   friendly_id (~> 5.0.0)
   jbuilder (~> 1.2)
   jquery-rails
   launchy
+  mini_magick
   pg
   pry
   pundit
   rails (= 4.0.2)
   rails_12factor
   redcarpet
-  rmagick
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
@@ -265,4 +285,5 @@ DEPENDENCIES
   truncate_html
   turbolinks
   uglifier (>= 1.3.0)
+  unf
   will_paginate

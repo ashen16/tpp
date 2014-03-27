@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+  class PostsController < ApplicationController
 	before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -31,7 +31,13 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 
 		if @post.save
-			redirect_to posts_path, notice: 'Post was successfully added.'
+			if params[:post][:image].present?
+				render :crop
+			else
+				redirect_to posts_path, notice: 'Post was successfully added.'
+			end
+		else
+			render action: 'new'
 		end
 	end
 
@@ -39,7 +45,13 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 
 		if @post.update_attributes(post_params)
-			redirect_to posts_path, notice: 'Post was successfully updated.'
+			if params[:post][:image].present?
+				render :crop
+			else
+				redirect_to posts_path, notice: 'Post was successfully updated.'
+			end
+		else
+			render action: 'new'
 		end
 	end
 
@@ -52,6 +64,6 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:title, :body, :image, :remote_image_url, :published, :tag_list)
+		params.require(:post).permit(:title, :body, :image, :remote_image_url, :published, :tag_list, :crop_x, :crop_y, :crop_w, :crop_h)
 	end
 end

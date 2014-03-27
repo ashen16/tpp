@@ -22,7 +22,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'ember-rails'
 gem 'carrierwave'
-gem "rmagick"
+gem 'mini_magick'
+gem 'fog'
+gem 'unf'
 gem "figaro"
 gem 'devise'
 gem 'acts-as-taggable-on'

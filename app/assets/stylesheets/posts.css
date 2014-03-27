@@ -68,3 +68,11 @@ header {
 .title-header h1, h5 {
   color: #fff;
 }
+.thumb-preview-div{
+  width:300px;
+  height:200px;
+  overflow:hidden;
+}
+#preview{
+  max-width: none;
+}
